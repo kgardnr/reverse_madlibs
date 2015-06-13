@@ -2,10 +2,22 @@ require 'pry'
 
 FILE = ARGV[0]
 
+nouns = File.open("nouns.txt") do |f|
+  f.read
+end.split
+
+verbs = File.open("verbs.txt") do |f|
+  f.read
+end.split
+
+adjectives = File.open("adjectives.txt") do |f|
+  f.read
+end.split
+
 dictionary = {
-  nouns: %w(dog car boy table), 
-  verbs: %w(run skip jump laugh),
-  adjectives: %w(big small great funny orange)
+  nouns: nouns,
+  verbs: verbs,
+  adjectives: verbs
 }
 
 def say(message)
