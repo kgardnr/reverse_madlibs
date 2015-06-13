@@ -24,8 +24,16 @@ contents = File.open(FILE, "r") do |f|
   f.read
 end
 
-contents.gsub!("NOUN", dictionary[:nouns].sample)
-contents.gsub!("VERB", dictionary[:verbs].sample)
-contents.gsub!("ADJECTIVE", dictionary[:adjectives].sample)
+contents.gsub!("NOUN").each do |noun|
+  dictionary[:nouns].sample
+end
+
+contents.gsub!("VERB").each do |noun|
+  dictionary[:verbs].sample
+end
+
+contents.gsub!("ADJECTIVE").each do |noun|
+  dictionary[:adjectives].sample
+end
 
 p contents
