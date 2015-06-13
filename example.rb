@@ -2,5 +2,10 @@ def say(message)
   puts "=> #{message}"
 end
 
-say("Error: No input file.") && exit if ARGV.empty?
-say("Error: No such file exists.") && exit if !File.exists?(ARGV[0])
+def exit_with(message)
+  say message
+  exit
+end
+
+exit_with("Error: No input file.") if ARGV.empty?
+exit_with("Error: No such file exists.") if !File.exists?(ARGV[0])
