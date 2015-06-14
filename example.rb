@@ -2,17 +2,20 @@ require 'pry'
 
 FILE = ARGV[0]
 
-nouns = File.open("nouns.txt") do |f|
-  f.read
-end.split
+def get_words_from_file(filename)
+  if !File.exists?(filename)
+    say "Error: #{filename} doesn't exist."
+    return
+  end
 
-verbs = File.open("verbs.txt") do |f|
-  f.read
-end.split
+  File.open("nouns.txt") do |f|
+    f.read
+  end.split
+end
 
-adjectives = File.open("adjectives.txt") do |f|
-  f.read
-end.split
+nouns = get_words_from_file("nouns.txt")
+verbs = get_words_from_file("verbs.txt")
+adjectives = get_words_from_file("adjectives.txt")
 
 dictionary = {
   nouns: nouns,
